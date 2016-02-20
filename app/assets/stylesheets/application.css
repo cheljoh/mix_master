@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
+ #all_artists {
+   max-width: 500 px
+ }

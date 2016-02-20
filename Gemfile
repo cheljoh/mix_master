@@ -37,6 +37,9 @@ group :development, :test do
   gem 'byebug'
   gem 'pry-rails'
   gem 'rspec-rails'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers'
 end
 
 group :development do
