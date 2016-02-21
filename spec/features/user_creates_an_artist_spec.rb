@@ -33,15 +33,9 @@ RSpec.feature "User submits a new artist" do
     artist_name2       = "The Beatles"
     artist_image_path2 = "http://d817ypd61vbww.cloudfront.net/sites/default/files/styles/media_responsive_widest/public/tile/image/YellowSub.jpg?itok=EMK_FRld"
 
-    visit new_artist_path
-    fill_in "artist_name", with: artist_name1
-    fill_in "artist_image_path", with: artist_image_path1
-    click_on "Create Artist"
+    Artist.create(name: artist_name1, image_path: artist_image_path1)
+    Artist.create(name: artist_name2, image_path: artist_image_path2)
 
-    visit new_artist_path
-    fill_in "artist_name", with: artist_name2
-    fill_in "artist_image_path", with: artist_image_path2
-    click_on "Create Artist"
     visit artists_path
     expect(page).to have_content artist_name1
     expect(page).to have_content artist_name2
@@ -57,11 +51,9 @@ RSpec.feature "User submits a new artist" do
     artist_name1       = "Bob Marley"
     artist_image_path1 = "http://cps-static.rovicorp.com/3/JPG_400/MI0003/146/MI0003146038.jpg"
 
-    visit new_artist_path
-    fill_in "artist_name", with: artist_name1
-    fill_in "artist_image_path", with: artist_image_path1
-    click_on "Create Artist"
+    artist = Artist.create(name: artist_name1, image_path: artist_image_path1)
 
+    visit artist_path(artist.id)
     click_on "Edit Artist"
 
     expect(page).to have_content artist_name1
@@ -78,10 +70,9 @@ RSpec.feature "User submits a new artist" do
     artist_name1       = "Bob Marley"
     artist_image_path1 = "http://cps-static.rovicorp.com/3/JPG_400/MI0003/146/MI0003146038.jpg"
 
-    visit new_artist_path
-    fill_in "artist_name", with: artist_name1
-    fill_in "artist_image_path", with: artist_image_path1
-    click_on "Create Artist"
+    artist = Artist.create(name: artist_name1, image_path: artist_image_path1)
+
+    visit artist_path(artist.id)
 
     click_on "Delete Artist"
 

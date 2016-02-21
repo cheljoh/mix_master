@@ -21,7 +21,7 @@ FactoryGirl.define do
     "Playlist #{n}"
   end
 
-  # factory :playlist do
+  # factory :playlist do #get error from this
   #     name { generate(:playlist_name) }
   #
   #     factory :playlist_with_songs do
